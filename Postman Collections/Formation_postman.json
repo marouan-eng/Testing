@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "1d061ed2-be16-4e80-9355-598299ee0452",
+		"name": "Blog-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "All posts",
+					"id": "8ecf8c2d-546c-4e4e-a698-d305f25fc662",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/posts"
+					},
+					"response": []
+				},
+				{
+					"name": "One post ID",
+					"id": "a8276090-1a4b-47ea-962c-a75ebb1fd590",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/posts/{{post_id}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Comment",
+					"id": "fcaea639-4751-4bf6-bec8-970c34c4ef5c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/posts/{{post_id}}/comments"
+					},
+					"response": []
+				},
+				{
+					"name": "Create post",
+					"id": "7a2aeda5-38e0-4536-b38a-2f116c8eebf1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Fomration\",\r\n    \"body\": \"API J1\",\r\n    \"userId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/posts"
+					},
+					"response": []
+				}
+			],
+			"id": "c09dc000-d45c-4688-a6bb-e37baf8a180c"
+		},
+		{
+			"name": "users",
+			"item": [],
+			"id": "b303e7c5-3b91-4b9b-a7af-e48a07a13de7"
+		},
+		{
+			"name": "comments",
+			"item": [],
+			"id": "497dee41-cc1d-4831-bae4-444259dddac0"
+		}
+	]
+}
