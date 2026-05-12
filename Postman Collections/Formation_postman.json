@@ -80,6 +80,31 @@
 						"header": []
 					},
 					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "e88d0090-7e34-4d77-92cf-989f337da7dc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": "{{base_url}}/posts/"
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "8d661abd-aec4-4992-8c66-7b9928a4f7a8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
 				}
 			],
 			"id": "c09dc000-d45c-4688-a6bb-e37baf8a180c"
