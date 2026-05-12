@@ -151,7 +151,8 @@
 					},
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": "{{base_url}}/todos"
 					},
 					"response": []
 				}
