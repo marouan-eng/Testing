@@ -105,7 +105,8 @@
 					"request": {
 						"method": "PATCH",
 						"header": [],
-						"url": "{{base_url}}/posts/"
+						"url": "{{base_url}}/posts/",
+						"description": "## PATCH /posts/\n\nThis endpoint allows you to update an existing post by modifying its properties. The request requires a JSON payload containing the fields you want to update.\n\n### Request Parameters\n\nThe request body must be in JSON format and can include the following parameters:\n\n- **title** (string): The new title of the post.\n    \n- **body** (string): The updated content of the post.\n    \n- **userId** (integer): The ID of the user who owns the post.\n    \n\n### Example Request Body\n\n``` json\n{\n  \"title\": \"Fomration\",\n  \"body\": \"API J2\",\n  \"userId\": 1\n}\n\n ```\n\n### Response Format\n\nOn a successful request, the server will respond with a status code of `200` and a JSON response containing the updated post details. The response structure is as follows:\n\n``` json\n{\n  \"posts\": [\n    {\n      \"id\": 0,\n      \"title\": \"\",\n      \"body\": \"\",\n      \"tags\": [\"\"],\n      \"reactions\": {\n        \"likes\": 0,\n        \"dislikes\": 0\n      },\n      \"views\": 0,\n      \"userId\": 0\n    }\n  ],\n  \"total\": 0,\n  \"skip\": 0,\n  \"limit\": 0\n}\n\n ```\n\n### Important Notes\n\n- Ensure that you have the necessary authentication to access this endpoint.\n    \n- Be aware of any usage limits that may apply to the number of requests you can make to this endpoint."
 					},
 					"response": []
 				}
