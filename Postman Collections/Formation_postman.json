@@ -104,6 +104,28 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"todo\": \"TEST 14\",\r\n    \"completed\": false,\r\n    \"userId\": 201\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/todos/add"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT",
+					"id": "a8522aae-b24a-4088-b8d2-7c46247835d6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
 						"method": "GET",
 						"header": []
 					},
