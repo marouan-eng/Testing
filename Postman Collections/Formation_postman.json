@@ -97,7 +97,7 @@
 					"response": []
 				},
 				{
-					"name": "Create post Copy",
+					"name": "Testing Creation post with wrong body",
 					"id": "abc96bdc-8329-44a5-86c3-dc4bea096732",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -122,6 +122,18 @@
 				{
 					"name": "Remove post",
 					"id": "51497255-0dca-4113-9ffb-a9fb1cf8c946",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Remove post Copy",
+					"id": "94846aff-0ad6-4fca-9e67-df92951eb20f",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
