@@ -17,7 +17,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{base_url}}/posts",
+						"url": "{{base_url}}posts",
 						"description": "### GET /posts\n\nThis endpoint retrieves a list of posts from the server. It allows clients to access the collection of posts, including their details such as title, body, tags, reactions, views, and associated user ID.\n\n#### Response Format\n\nOn a successful request, the server responds with a status code of **200** and the content type **application/json**. The response body contains the following structure:\n\n- **posts**: An array of post objects, each containing:\n    \n    - **id**: A unique identifier for the post.\n        \n    - **title**: The title of the post.\n        \n    - **body**: The content of the post.\n        \n    - **tags**: An array of tags associated with the post.\n        \n    - **reactions**: An object containing:\n        \n        - **likes**: The number of likes the post has received.\n            \n        - **dislikes**: The number of dislikes the post has received.\n            \n    - **views**: The total number of views for the post.\n        \n    - **userId**: The identifier of the user who created the post.\n        \n- **total**: The total number of posts available.\n    \n- **skip**: The number of posts skipped in the response.\n    \n- **limit**: The maximum number of posts returned in the response.\n    \n\nThis endpoint is useful for fetching a paginated list of posts, along with their metadata, for display or further processing."
 					},
 					"response": []
@@ -57,7 +57,23 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}posts?limit=5&skip=5",
+							"host": [
+								"{{base_url}}posts"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "skip",
+									"value": "5"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -69,7 +85,23 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}posts?limit=S&skip=5",
+							"host": [
+								"{{base_url}}posts"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "S"
+								},
+								{
+									"key": "skip",
+									"value": "5"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -91,7 +123,7 @@
 								}
 							}
 						},
-						"url": "{{base_url}}/posts",
+						"url": "{{base_url}}/posts/",
 						"description": "# Create a Post\n\nThis endpoint allows users to create a new post. It accepts a JSON payload containing the details of the post and returns the created post along with its metadata.\n\n## Request\n\n**Method:** POST  \n**URL:** `{{base_url}}/posts/`\n\n### Request Body\n\nThe request body must be in JSON format and should include the following parameters:\n\n- **title** (string): The title of the post.\n    \n- **body** (string): The content of the post.\n    \n- **userId** (integer): The ID of the user creating the post.\n    \n\n#### Example Request Body\n\n``` json\n{\n  \"title\": \"Fomration\",\n  \"body\": \"API J1\",\n  \"userId\": 1\n}\n\n ```\n\n## Response\n\nOn a successful request, the server responds with a status code of 200 and a JSON object containing the created post's details.\n\n### Response Structure\n\nThe response body will have the following structure:\n\n- **posts** (array): An array containing the created post object.\n    \n    - **id** (integer): The unique identifier for the post.\n        \n    - **title** (string): The title of the post.\n        \n    - **body** (string): The content of the post.\n        \n    - **tags** (array): An array of tags associated with the post.\n        \n    - **reactions** (object): An object containing reaction counts.\n        \n        - **likes** (integer): The number of likes for the post.\n            \n        - **dislikes** (integer): The number of dislikes for the post.\n            \n    - **views** (integer): The number of views the post has received.\n        \n    - **userId** (integer): The ID of the user who created the post.\n        \n- **total** (integer): The total number of posts.\n    \n- **skip** (integer): The number of posts skipped in the response.\n    \n- **limit** (integer): The limit set for the number of posts returned.\n    \n\n#### Example Response\n\n``` json\n{\n  \"posts\": [\n    {\n      \"id\": 0,\n      \"title\": \"\",\n      \"body\": \"\",\n      \"tags\": [\"\"],\n      \"reactions\": {\n        \"likes\": 0,\n        \"dislikes\": 0\n      },\n      \"views\": 0,\n      \"userId\": 0\n    }\n  ],\n  \"total\": 0,\n  \"skip\": 0,\n  \"limit\": 0\n}\n\n ```\n\n## Authentication\n\nThis endpoint may require authentication. Ensure that you include the appropriate authentication tokens or credentials in your request headers.\n\n## Possible Error Responses\n\n- **400 Bad Request**: The server could not understand the request due to invalid syntax. This may occur if required fields are missing or incorrect.\n    \n- **401 Unauthorized**: Authentication is required and has failed or has not yet been provided.\n    \n- **500 Internal Server Error**: An unexpected error occurred on the server side.\n    \n\nMake sure to validate the input parameters and handle errors appropriately in your application.\n\n### Description\n\nThis endpoint allows users to create a new post by submitting a title, body content, and associated user ID. Upon successful creation, the API returns details about the newly created post, including its ID and other metadata.\n\n### Request\n\n- **Method**: POST\n    \n- **URL**: `{{base_url}}/posts/`\n    \n\n#### Request Body\n\nThe request body must be in JSON format and contain the following parameters:\n\n| Parameter | Type | Description |\n| --- | --- | --- |\n| title | string | The title of the post. |\n| body | string | The content of the post. |\n| userId | integer | The ID of the user creating the post. |\n\n**Example Request Body:**\n\n``` json\n{\n  \"title\": \"Fomration\",\n  \"body\": \"API J1\",\n  \"userId\": 1\n}\n\n ```\n\n### Response\n\nOn a successful request, the API responds with a status code of 200 and returns a JSON object containing the details of the created post.\n\n#### Response Structure\n\nThe response will include the following fields:\n\n| Field | Type | Description |\n| --- | --- | --- |\n| posts | array | An array containing the created post details. |\n| total | integer | The total number of posts returned. |\n| skip | integer | The number of posts skipped in the response. |\n| limit | integer | The maximum number of posts returned in the response. |\n\n**Example Response:**\n\n``` json\n{\n  \"posts\": [\n    {\n      \"id\": 0,\n      \"title\": \"\",\n      \"body\": \"\",\n      \"tags\": [\"\"],\n      \"reactions\": {\n        \"likes\": 0,\n        \"dislikes\": 0\n      },\n      \"views\": 0,\n      \"userId\": 0\n    }\n  ],\n  \"total\": 0,\n  \"skip\": 0,\n  \"limit\": 0\n}\n\n ```\n\n### Authentication\n\nThis endpoint may require user authentication. Ensure that you include the necessary authentication tokens in the request headers.\n\n### Possible Error Responses\n\n- **400 Bad Request**: If the request body is malformed or missing required fields.\n    \n- **401 Unauthorized**: If the user is not authenticated or lacks permissions to create a post.\n    \n- **500 Internal Server Error**: If there is a server-side issue while processing the request.\n    \n\nPlease ensure to handle these error responses appropriately in your application."
 					},
 					"response": []
@@ -107,7 +139,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Fomration\",\r\n    \"body\": \"API J1\",\r\n    \"userId\": 1\r\n}",
+							"raw": "{\r\n    \"title\": \"Fomration\",\r\n    \"bodys\": \"API J1\",\r\n    \"userId\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -127,7 +159,8 @@
 					},
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": "{{base_url}}/posts/{{post_id}}"
 					},
 					"response": []
 				},
@@ -139,7 +172,8 @@
 					},
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": "{{base_url}}/pos/{{post_id}}"
 					},
 					"response": []
 				},
@@ -151,7 +185,17 @@
 					},
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Fomration\",\r\n    \"body\": \"API J1\",\r\n    \"userId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/posts/{{post_id}}"
 					},
 					"response": []
 				},
@@ -163,7 +207,17 @@
 					},
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Fomration\",\r\n    \"body\": \"API J1\",\r\n    \"userId\": 1,\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/posts/{{post_id}}"
 					},
 					"response": []
 				},
@@ -176,7 +230,16 @@
 					"request": {
 						"method": "PATCH",
 						"header": [],
-						"url": "{{base_url}}/posts/",
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Formation\",\r\n    \"userId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/posts/{{post_id}}",
 						"description": "## PATCH /posts/\n\nThis endpoint allows you to update an existing post by modifying its properties. The request requires a JSON payload containing the fields you want to update.\n\n### Request Parameters\n\nThe request body must be in JSON format and can include the following parameters:\n\n- **title** (string): The new title of the post.\n    \n- **body** (string): The updated content of the post.\n    \n- **userId** (integer): The ID of the user who owns the post.\n    \n\n### Example Request Body\n\n``` json\n{\n  \"title\": \"Fomration\",\n  \"body\": \"API J2\",\n  \"userId\": 1\n}\n\n ```\n\n### Response Format\n\nOn a successful request, the server will respond with a status code of `200` and a JSON response containing the updated post details. The response structure is as follows:\n\n``` json\n{\n  \"posts\": [\n    {\n      \"id\": 0,\n      \"title\": \"\",\n      \"body\": \"\",\n      \"tags\": [\"\"],\n      \"reactions\": {\n        \"likes\": 0,\n        \"dislikes\": 0\n      },\n      \"views\": 0,\n      \"userId\": 0\n    }\n  ],\n  \"total\": 0,\n  \"skip\": 0,\n  \"limit\": 0\n}\n\n ```\n\n### Important Notes\n\n- Ensure that you have the necessary authentication to access this endpoint.\n    \n- Be aware of any usage limits that may apply to the number of requests you can make to this endpoint."
 					},
 					"response": []
@@ -274,13 +337,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "54282d24-d798-40f1-bf10-05db9281ae6c",
+								"id": "cdc2bcf2-4fb6-4806-af8a-dc27148216ba",
 								"exec": [
 									"pm.test(\"Login réussi\", function () {\r",
 									"pm.response.to.have.status(200);});\r",
 									"const responseJson = pm.response.json();\r",
-									"pm.environment.set(\"access_token\",responseJson.token);\r",
-									"console.log(\"Token sauvegardé :\",responseJson.token);"
+									"pm.environment.set(\"access_token\",responseJson.accessToken);\r",
+									"console.log(\"Token sauvegardé :\",responseJson.accessToken);"
 								],
 								"type": "text/javascript",
 								"packages": {},
@@ -318,6 +381,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
+						"url": "{{base_url}}/auth/me",
 						"description": "### Endpoint: Get User Information\n\n**HTTP Method:** GET  \n**URL:** `{{base_url}}/auth/me`\n\n#### Purpose\n\nThis endpoint retrieves the authenticated user's information. It provides details about the user such as personal information, contact details, and other relevant data associated with the user's account.\n\n#### Request Parameters\n\nThis endpoint does not require any input parameters. The request is made by the authenticated user, and the server uses the authentication token to identify the user.\n\n#### Response Structure\n\nOn a successful request, the server responds with a status code of `200` and a JSON object containing the user's details. The structure of the response is as follows:\n\n``` json\n{\n  \"id\": 0,\n  \"firstName\": \"\",\n  \"lastName\": \"\",\n  \"maidenName\": \"\",\n  \"age\": 0,\n  \"gender\": \"\",\n  \"email\": \"\",\n  \"phone\": \"\",\n  \"username\": \"\",\n  \"password\": \"\",\n  \"birthDate\": \"\",\n  \"image\": \"\",\n  \"bloodGroup\": \"\",\n  \"height\": 0,\n  \"weight\": 0,\n  \"eyeColor\": \"\",\n  \"hair\": {\n    \"color\": \"\",\n    \"type\": \"\"\n  },\n  \"ip\": \"\",\n  \"address\": {\n    \"address\": \"\",\n    \"city\": \"\",\n    \"state\": \"\",\n    \"stateCode\": \"\",\n    \"postalCode\": \"\",\n    \"coordinates\": {\n      \"lat\": 0,\n      \"lng\": 0\n    },\n    \"country\": \"\"\n  },\n  \"macAddress\": \"\",\n  \"university\": \"\",\n  \"bank\": {\n    \"cardExpire\": \"\",\n    \"cardNumber\": \"\",\n    \"cardType\": \"\",\n    \"currency\": \"\",\n    \"iban\": \"\"\n  },\n  \"company\": {\n    \"department\": \"\",\n    \"name\": \"\",\n    \"title\": \"\",\n    \"address\": {\n      \"address\": \"\",\n      \"city\": \"\",\n      \"state\": \"\",\n      \"stateCode\": \"\",\n      \"postalCode\": \"\",\n      \"coordinates\": {\n        \"lat\": 0,\n        \"lng\": 0\n      },\n      \"country\": \"\"\n    }\n  },\n  \"ein\": \"\",\n  \"ssn\": \"\",\n  \"userAgent\": \"\",\n  \"crypto\": {\n    \"coin\": \"\",\n    \"wallet\": \"\",\n    \"network\": \"\"\n  },\n  \"role\": \"\"\n}\n\n ```\n\n#### Important Notes\n\n- Ensure that the user is authenticated before making this request. The server will validate the authentication token.\n    \n- The response will contain sensitive information; handle it securely and in accordance with privacy regulations.\n    \n- If the user is not authenticated, the server may respond with a `401 Unauthorized` status.\n    \n\n#### Usage Example\n\nTo retrieve the authenticated user's information, send a GET request to the endpoint without any parameters:\n\n``` http\nGET {{base_url}}/auth/me\nAuthorization: Bearer <your_access_token>\n\n ```\n\nThis endpoint retrieves the current authenticated user's information. It is typically used to fetch user details after the user has logged in.\n\n### Request\n\n- **Method**: GET\n    \n- **URL**: `{{base_url}}/auth/me`\n    \n\n### Response\n\nUpon a successful request, the server responds with a `200 OK` status and returns a JSON object containing the user's details. Below is the structure of the response:\n\n``` json\n{\n  \"id\": 0,\n  \"firstName\": \"\",\n  \"lastName\": \"\",\n  \"maidenName\": \"\",\n  \"age\": 0,\n  \"gender\": \"\",\n  \"email\": \"\",\n  \"phone\": \"\",\n  \"username\": \"\",\n  \"password\": \"\",\n  \"birthDate\": \"\",\n  \"image\": \"\",\n  \"bloodGroup\": \"\",\n  \"height\": 0,\n  \"weight\": 0,\n  \"eyeColor\": \"\",\n  \"hair\": {\n    \"color\": \"\",\n    \"type\": \"\"\n  },\n  \"ip\": \"\",\n  \"address\": {\n    \"address\": \"\",\n    \"city\": \"\",\n    \"state\": \"\",\n    \"stateCode\": \"\",\n    \"postalCode\": \"\",\n    \"coordinates\": {\n      \"lat\": 0,\n      \"lng\": 0\n    },\n    \"country\": \"\"\n  },\n  \"macAddress\": \"\",\n  \"university\": \"\",\n  \"bank\": {\n    \"cardExpire\": \"\",\n    \"cardNumber\": \"\",\n    \"cardType\": \"\",\n    \"currency\": \"\",\n    \"iban\": \"\"\n  },\n  \"company\": {\n    \"department\": \"\",\n    \"name\": \"\",\n    \"title\": \"\",\n    \"address\": {\n      \"address\": \"\",\n      \"city\": \"\",\n      \"state\": \"\",\n      \"stateCode\": \"\",\n      \"postalCode\": \"\",\n      \"coordinates\": {\n        \"lat\": 0,\n        \"lng\": 0\n      },\n      \"country\": \"\"\n    }\n  },\n  \"ein\": \"\",\n  \"ssn\": \"\",\n  \"userAgent\": \"\",\n  \"crypto\": {\n    \"coin\": \"\",\n    \"wallet\": \"\",\n    \"network\": \"\"\n  },\n  \"role\": \"\"\n}\n\n ```\n\n### Important Notes\n\n- Ensure that the user is authenticated before making this request, as it retrieves sensitive information.\n    \n- The response includes various fields related to the user's profile, including personal information, address, bank details, and company information.\n    \n- The values returned will depend on the user's profile and may not be populated for all fields.\n    \n\n### Usage Example\n\nTo use this endpoint, simply send a GET request to the specified URL after the user has logged in. The response will provide the current user's details, which can be used to display their profile or for other application functionalities."
 					},
 					"response": []
