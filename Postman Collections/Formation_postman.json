@@ -258,7 +258,8 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "{{base_url}}/todos"
 					},
 					"response": []
 				},
@@ -273,7 +274,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 1,\r\n    \"todo\": \"TEST 14\",\r\n    \"completed\": false,\r\n    \"userId\": 201\r\n}",
+							"raw": "{\r\n    \"todo\": \"Marouan\",\r\n    \"completed\": false,\r\n    \"userId\": 201\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -294,6 +295,16 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"todo\": \"Marouan\",\r\n    \"completed\": false,\r\n    \"userId\": 201\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/todos/{{todo_id}}",
 						"description": "## Update Todo Item\n\nThis endpoint allows you to update an existing todo item identified by its unique `todo_id`.\n\n### HTTP Method\n\n`PUT`\n\n### Endpoint\n\n`{{base_url}}/todos/{{todo_id}}`\n\n### Request Parameters\n\nThe request body should be in JSON format and include the following parameters:\n\n- **todo** (string): The updated description of the todo item.\n    \n- **completed** (boolean): Indicates whether the todo item is completed or not.\n    \n- **userId** (integer): The ID of the user who owns the todo item.\n    \n\n#### Example Request Body\n\n``` json\n{\n  \"todo\": \"Marouan\",\n  \"completed\": false,\n  \"userId\": 201\n}\n\n ```\n\n### Response\n\nOn a successful update, the server will respond with a status code of `200` and a JSON object containing the updated todo item details:\n\n- **id** (integer): The unique identifier of the todo item.\n    \n- **todo** (string): The updated description of the todo item.\n    \n- **completed** (boolean): The completion status of the todo item.\n    \n- **userId** (integer): The ID of the user who owns the todo item.\n    \n\n#### Example Response\n\n``` json\n{\n  \"id\": 0,\n  \"todo\": \"\",\n  \"completed\": true,\n  \"userId\": 0\n}\n\n ```\n\n### Notes\n\n- Ensure that the `todo_id` in the URL corresponds to an existing todo item.\n    \n- The response will reflect the updated state of the todo item.\n    \n\nThis endpoint allows you to update an existing todo item identified by `todo_id`. You can modify the details of the todo, including its completion status and associated user.\n\n### Request\n\n- **Method**: PUT\n    \n- **Endpoint**: `{{base_url}}/todos/{{todo_id}}`\n    \n- **Content-Type**: application/json\n    \n\n#### Request Body Parameters\n\nThe request body must be a JSON object with the following parameters:\n\n- `todo` (string): The updated text of the todo item.\n    \n- `completed` (boolean): Indicates whether the todo item is completed.\n    \n- `userId` (integer): The ID of the user associated with the todo item.\n    \n\n**Example Request Body:**\n\n``` json\n{\n  \"todo\": \"Marouan\",\n  \"completed\": false,\n  \"userId\": 201\n}\n\n ```\n\n### Response\n\nUpon successful update, the API will return a response with the following structure:\n\n- **Status**: 200 OK\n    \n- **Content-Type**: application/json\n    \n\n#### Response Body\n\nThe response will include a JSON object with the following fields:\n\n- `id` (integer): The unique identifier of the updated todo item.\n    \n- `todo` (string): The updated text of the todo item.\n    \n- `completed` (boolean): The updated completion status of the todo item.\n    \n- `userId` (integer): The ID of the user associated with the todo item.\n    \n\n**Example Response:**\n\n``` json\n{\n  \"id\": 0,\n  \"todo\": \"\",\n  \"completed\": true,\n  \"userId\": 0\n}\n\n ```\n\n### Summary\n\nThis endpoint is essential for managing todo items, allowing users to keep their tasks up to date with relevant information."
 					},
 					"response": []
@@ -307,6 +318,16 @@
 					"request": {
 						"method": "PATCH",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"todo\": \"Marouan\",\r\n    \"completed\": true,\r\n    \"userId\": 201\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/todos/{{todo_id}}",
 						"description": "# PATCH /todos/{{todo_id}}\n\nThis endpoint allows you to update an existing todo item identified by `todo_id`. You can modify the `todo` text, its completion status, and the associated `userId`.\n\n## Request\n\n### Method\n\n`PATCH`\n\n### Endpoint\n\n`{{base_url}}/todos/{{todo_id}}`\n\n### Request Body\n\nThe request body must be in JSON format and can include the following parameters:\n\n- **todo** (string): The updated text of the todo item.\n    \n- **completed** (boolean): Indicates whether the todo item is completed.\n    \n- **userId** (integer): The ID of the user associated with the todo item.\n    \n\n#### Example Request Body\n\n``` json\n{\n  \"todo\": \"Marouan\",\n  \"completed\": true,\n  \"userId\": 201\n}\n\n ```\n\n### Headers\n\n- **Content-Type**: `application/json` - This header indicates that the request body format is JSON.\n    \n\n## Response\n\n### Status Code\n\n- **200 OK**: Indicates that the request was successful and the todo item has been updated.\n    \n\n### Response Body\n\nThe response will be in JSON format and will include the following fields:\n\n- **id** (integer): The unique identifier of the updated todo item.\n    \n- **todo** (string): The updated text of the todo item.\n    \n- **completed** (boolean): The completion status of the todo item.\n    \n- **userId** (integer): The ID of the user associated with the todo item.\n    \n\n#### Example Response Body\n\n``` json\n{\n  \"id\": 0,\n  \"todo\": \"\",\n  \"completed\": true,\n  \"userId\": 0\n}\n\n ```\n\n## Summary\n\nUse this endpoint to modify existing todo items by providing the necessary details in the request body. Upon successful execution, you will receive the updated todo item details in the response.\n\nThis endpoint allows you to update an existing todo item identified by `todo_id`. The request modifies the properties of the todo item, including its title and completion status.\n\n#### Request Parameters\n\nThe request body must be in JSON format and can include the following parameters:\n\n- **todo** (string): The title or description of the todo item.\n    \n- **completed** (boolean): Indicates whether the todo item is completed.\n    \n- **userId** (integer): The ID of the user associated with the todo item.\n    \n\n#### Example Request Body\n\n``` json\n{\n  \"todo\": \"Marouan\",\n  \"completed\": true,\n  \"userId\": 201\n}\n\n ```\n\n#### Response Format\n\nUpon a successful update, the server responds with a status code of `200` and returns a JSON object containing the updated properties of the todo item.\n\n#### Example Response\n\n``` json\n{\n  \"id\": 0,\n  \"todo\": \"\",\n  \"completed\": true,\n  \"userId\": 0\n}\n\n ```\n\nThe response includes the `id` of the todo item, its `todo` description, the `completed` status, and the associated `userId`."
 					},
 					"response": []
@@ -320,7 +341,7 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "{{base_url}}/todos",
+						"url": "{{base_url}}/todos/{{todo_id}}",
 						"description": "\n## Delete Todo Item\n\nThis endpoint allows you to delete a specific todo item identified by its unique `todo_id`.\n\n### Request\n\n- **Method**: `DELETE`\n- **Endpoint**: `{{base_url}}/todos/{{todo_id}}`\n- **Path Parameters**:\n  - `todo_id` (required): The unique identifier of the todo item you wish to delete.\n\n### Response\n\nUpon successful deletion of the todo item, the API will return a response with the following details:\n\n- **Status Code**: `200 OK`\n- **Content-Type**: `application/json`\n- **Response Body**:\n    ```json\n    {\n        \"id\": 0,\n        \"todo\": \"\",\n        \"completed\": true,\n        \"userId\": 0,\n        \"isDeleted\": true,\n        \"deletedOn\": \"\"\n    }\n    ```\n  - `id`: The unique identifier of the deleted todo item.\n  - `todo`: The title or description of the deleted todo item.\n  - `completed`: A boolean indicating if the todo item was completed before deletion.\n  - `userId`: The identifier of the user who created the todo item.\n  - `isDeleted`: A boolean confirming that the item has been marked as deleted.\n  - `deletedOn`: A timestamp indicating when the item was deleted.\n\nThis response confirms the successful deletion of the specified todo item and provides relevant details about the deleted item.\n"
 					},
 					"response": []
