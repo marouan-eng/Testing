@@ -35,7 +35,7 @@
 					"response": []
 				},
 				{
-					"name": "Comment",
+					"name": "Comment and reaction on post",
 					"id": "fcaea639-4751-4bf6-bec8-970c34c4ef5c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -68,19 +68,21 @@
 						"url": "{{base_url}}/posts"
 					},
 					"response": []
+				},
+				{
+					"name": "Remove post",
+					"id": "51497255-0dca-4113-9ffb-a9fb1cf8c946",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
 				}
 			],
 			"id": "c09dc000-d45c-4688-a6bb-e37baf8a180c"
-		},
-		{
-			"name": "users",
-			"item": [],
-			"id": "b303e7c5-3b91-4b9b-a7af-e48a07a13de7"
-		},
-		{
-			"name": "comments",
-			"item": [],
-			"id": "497dee41-cc1d-4831-bae4-444259dddac0"
 		},
 		{
 			"name": "Todos",
@@ -216,6 +218,16 @@
 				}
 			],
 			"id": "142a1633-3916-4fae-a3d5-738a8879de36"
+		},
+		{
+			"name": "users",
+			"item": [],
+			"id": "b303e7c5-3b91-4b9b-a7af-e48a07a13de7"
+		},
+		{
+			"name": "comments",
+			"item": [],
+			"id": "497dee41-cc1d-4831-bae4-444259dddac0"
 		}
 	],
 	"event": [
