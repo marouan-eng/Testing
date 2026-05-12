@@ -130,6 +130,30 @@
 						"header": []
 					},
 					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "008f4e50-e26a-4b8f-ad09-595851c4e81f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "96f0a863-b4dd-4118-88d1-4d8437231d26",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
 				}
 			],
 			"id": "5bf8cf21-73f0-4cc8-90a2-bee82207c8ad"
