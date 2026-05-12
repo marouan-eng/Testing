@@ -164,7 +164,47 @@
 			"item": [
 				{
 					"name": "New Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "54282d24-d798-40f1-bf10-05db9281ae6c",
+								"exec": [
+									"pm.test(\"Login réussi\", function () {\r",
+									"pm.response.to.have.status(200);});\r",
+									"const responseJson = pm.response.json();\r",
+									"pm.environment.set(\"access_token\",responseJson.token);\r",
+									"console.log(\"Token sauvegardé :\",responseJson.token);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
 					"id": "e4a3c4ba-5c72-4680-9787-ef2ca124874a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"username\": \"emilys\",\r\n\"password\": \"emilyspass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "create post",
+					"id": "fc6ab3bc-8e2b-4d8f-b213-ed3485c8fcf2",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
