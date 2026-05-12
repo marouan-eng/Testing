@@ -50,6 +50,30 @@
 					"response": []
 				},
 				{
+					"name": "Retreive post with limit 5",
+					"id": "c0b617f1-a29d-4a81-a07b-a8faaff67d92",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Testing invalid params",
+					"id": "9e056ae6-326f-4f86-be48-42767b65f7c3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
 					"name": "Create post",
 					"id": "7a2aeda5-38e0-4536-b38a-2f116c8eebf1",
 					"protocolProfileBehavior": {
