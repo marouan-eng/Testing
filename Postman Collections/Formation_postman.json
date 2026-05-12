@@ -98,7 +98,7 @@
 					"response": []
 				},
 				{
-					"name": "POST todos",
+					"name": "Create todos",
 					"id": "c89e4f96-70ec-4a36-9892-cfe5b40ed16e",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -120,7 +120,7 @@
 					"response": []
 				},
 				{
-					"name": "PUT todos",
+					"name": "replace all todos",
 					"id": "a8522aae-b24a-4088-b8d2-7c46247835d6",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -132,7 +132,7 @@
 					"response": []
 				},
 				{
-					"name": "Patch todos",
+					"name": "Modify one todos",
 					"id": "008f4e50-e26a-4b8f-ad09-595851c4e81f",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -144,7 +144,7 @@
 					"response": []
 				},
 				{
-					"name": "delete todos",
+					"name": "delete a todos",
 					"id": "96f0a863-b4dd-4118-88d1-4d8437231d26",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
