@@ -132,7 +132,7 @@
 					"response": []
 				},
 				{
-					"name": "Testing Remove post",
+					"name": "Testing Remove post in single Posts=post",
 					"id": "94846aff-0ad6-4fca-9e67-df92951eb20f",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -146,6 +146,18 @@
 				{
 					"name": "replace post details",
 					"id": "8d661abd-aec4-4992-8c66-7b9928a4f7a8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "replace post details Copy",
+					"id": "bca814b6-6706-4777-bc18-fa9aa90de5fd",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
