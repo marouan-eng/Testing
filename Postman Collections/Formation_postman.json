@@ -132,7 +132,7 @@
 					"response": []
 				},
 				{
-					"name": "Remove post Copy",
+					"name": "Testing Remove post",
 					"id": "94846aff-0ad6-4fca-9e67-df92951eb20f",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
