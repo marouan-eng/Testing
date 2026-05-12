@@ -82,7 +82,19 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "replace post details",
+					"id": "8d661abd-aec4-4992-8c66-7b9928a4f7a8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "correct post details",
 					"id": "e88d0090-7e34-4d77-92cf-989f337da7dc",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -91,18 +103,6 @@
 						"method": "PATCH",
 						"header": [],
 						"url": "{{base_url}}/posts/"
-					},
-					"response": []
-				},
-				{
-					"name": "New Request",
-					"id": "8d661abd-aec4-4992-8c66-7b9928a4f7a8",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PUT",
-						"header": []
 					},
 					"response": []
 				}
