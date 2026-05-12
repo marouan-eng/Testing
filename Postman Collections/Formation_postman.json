@@ -156,7 +156,7 @@
 					"response": []
 				},
 				{
-					"name": "replace post details Copy",
+					"name": "Testing replacing wrong post details",
 					"id": "bca814b6-6706-4777-bc18-fa9aa90de5fd",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
