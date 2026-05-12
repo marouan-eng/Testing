@@ -222,7 +222,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "a9758acd-9a7f-4092-a284-1e04f7ab90c6",
+				"id": "90a9f6e3-651a-4066-ada4-6c5f129e0367",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -234,7 +234,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a97ad989-81bf-4a2a-bacf-0e82f40a10b8",
+				"id": "1a39e216-ea8b-47f1-8c71-08ccf7169ecd",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -251,6 +251,10 @@
 		},
 		{
 			"key": "base_url",
+			"value": ""
+		},
+		{
+			"key": "todo_id",
 			"value": ""
 		}
 	]
