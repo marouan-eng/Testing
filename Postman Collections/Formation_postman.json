@@ -190,7 +190,7 @@
 			"name": "Auth",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "retreive token automatic",
 					"event": [
 						{
 							"listen": "test",
@@ -230,7 +230,7 @@
 					"response": []
 				},
 				{
-					"name": "create post",
+					"name": "Verify my Auth",
 					"id": "fc6ab3bc-8e2b-4d8f-b213-ed3485c8fcf2",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
