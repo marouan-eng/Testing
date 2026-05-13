@@ -259,7 +259,8 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{base_url}}/todos"
+						"url": "{{base_url}}/todos",
+						"description": "# GET /todos\n\nThis endpoint retrieves a list of todo items. It allows users to fetch all existing todos from the server.\n\n## Request Parameters\n\nThis endpoint does not require any input parameters. Simply make a GET request to the specified URL to obtain the todos.\n\n## Response Structure\n\nUpon a successful request, the server responds with a JSON object containing the following structure:\n\n- **todos** (Array): A list of todo items, where each item includes:\n    \n    - **id** (Integer): The unique identifier for the todo item.\n        \n    - **todo** (String): The description of the todo item.\n        \n    - **completed** (Boolean): Indicates whether the todo item has been completed.\n        \n    - **userId** (Integer): The identifier of the user to whom the todo item belongs.\n        \n- **total** (Integer): The total number of todos available.\n    \n- **skip** (Integer): The number of todos skipped in the response (used for pagination).\n    \n- **limit** (Integer): The maximum number of todos returned in the response.\n    \n\n### Example Response\n\n``` json\n{\n  \"todos\": [\n    {\n      \"id\": 0,\n      \"todo\": \"\",\n      \"completed\": true,\n      \"userId\": 0\n    }\n  ],\n  \"total\": 0,\n  \"skip\": 0,\n  \"limit\": 0\n}\n\n ```\n\nThis response indicates that the request was successful and provides the user with the current state of todos."
 					},
 					"response": []
 				},
