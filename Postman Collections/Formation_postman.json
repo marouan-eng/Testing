@@ -449,6 +449,18 @@
 						"description": "\n## Delete Todo Item\n\nThis endpoint allows you to delete a specific todo item identified by its unique `todo_id`.\n\n### Request\n\n- **Method**: `DELETE`\n- **Endpoint**: `{{base_url}}/todos/{{todo_id}}`\n- **Path Parameters**:\n  - `todo_id` (required): The unique identifier of the todo item you wish to delete.\n\n### Response\n\nUpon successful deletion of the todo item, the API will return a response with the following details:\n\n- **Status Code**: `200 OK`\n- **Content-Type**: `application/json`\n- **Response Body**:\n    ```json\n    {\n        \"id\": 0,\n        \"todo\": \"\",\n        \"completed\": true,\n        \"userId\": 0,\n        \"isDeleted\": true,\n        \"deletedOn\": \"\"\n    }\n    ```\n  - `id`: The unique identifier of the deleted todo item.\n  - `todo`: The title or description of the deleted todo item.\n  - `completed`: A boolean indicating if the todo item was completed before deletion.\n  - `userId`: The identifier of the user who created the todo item.\n  - `isDeleted`: A boolean confirming that the item has been marked as deleted.\n  - `deletedOn`: A timestamp indicating when the item was deleted.\n\nThis response confirms the successful deletion of the specified todo item and provides relevant details about the deleted item.\n"
 					},
 					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "573af2b2-2989-452f-b57b-7354d35b94a4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			],
 			"id": "d7623d6b-37a9-48ef-997a-fa92d7fbcd5c"
