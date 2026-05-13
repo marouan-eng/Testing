@@ -354,20 +354,6 @@
 			"name": "Todos Testing",
 			"item": [
 				{
-					"name": "GET all todos",
-					"id": "7157b280-61c5-4f92-adc8-8b5adee1dd1e",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "{{base_url}}/todos",
-						"description": "# GET /todos\n\nThis endpoint retrieves a list of todo items. It allows users to fetch all existing todos from the server.\n\n## Request Parameters\n\nThis endpoint does not require any input parameters. Simply make a GET request to the specified URL to obtain the todos.\n\n## Response Structure\n\nUpon a successful request, the server responds with a JSON object containing the following structure:\n\n- **todos** (Array): A list of todo items, where each item includes:\n    \n    - **id** (Integer): The unique identifier for the todo item.\n        \n    - **todo** (String): The description of the todo item.\n        \n    - **completed** (Boolean): Indicates whether the todo item has been completed.\n        \n    - **userId** (Integer): The identifier of the user to whom the todo item belongs.\n        \n- **total** (Integer): The total number of todos available.\n    \n- **skip** (Integer): The number of todos skipped in the response (used for pagination).\n    \n- **limit** (Integer): The maximum number of todos returned in the response.\n    \n\n### Example Response\n\n``` json\n{\n  \"todos\": [\n    {\n      \"id\": 0,\n      \"todo\": \"\",\n      \"completed\": true,\n      \"userId\": 0\n    }\n  ],\n  \"total\": 0,\n  \"skip\": 0,\n  \"limit\": 0\n}\n\n ```\n\nThis response indicates that the request was successful and provides the user with the current state of todos."
-					},
-					"response": []
-				},
-				{
 					"name": "Create todos",
 					"id": "6bfb0c1d-a03d-41a5-a1f8-037a25e48840",
 					"protocolProfileBehavior": {
@@ -387,6 +373,20 @@
 						},
 						"url": "{{base_url}}/todos/add",
 						"description": "## Add Todo\n\nThis endpoint allows users to add a new todo item to their list.\n\n### Request\n\n- **Method**: `POST`\n    \n- **Endpoint**: `{{base_url}}/todos/add`\n    \n- **Request Body**: The request must include a JSON object with the following parameters:\n    \n    - `todo` (string): The description of the todo item.\n        \n    - `completed` (boolean): Indicates whether the todo item is completed.\n        \n    - `userId` (integer): The ID of the user associated with the todo item.\n        \n\n#### Example Request Body\n\n``` json\n{\n  \"todo\": \"Marouan\",\n  \"completed\": false,\n  \"userId\": 201\n}\n\n ```\n\n### Response\n\n- **Status Code**: `201 Created`\n    \n- **Content-Type**: `application/json`\n    \n- **Response Body**: The response will return a JSON object containing:\n    \n    - `id` (integer): The unique identifier for the newly created todo item.\n        \n    - `todo` (string): The description of the todo item.\n        \n    - `completed` (boolean): The completion status of the todo item.\n        \n    - `userId` (integer): The ID of the user associated with the todo item.\n        \n\n#### Example Response\n\n``` json\n{\n  \"id\": 0,\n  \"todo\": \"\",\n  \"completed\": true,\n  \"userId\": 0\n}\n\n ```\n\nThis endpoint is useful for managing todo items, allowing users to keep track of their tasks effectively."
+					},
+					"response": []
+				},
+				{
+					"name": "GET all todos",
+					"id": "7157b280-61c5-4f92-adc8-8b5adee1dd1e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/todos",
+						"description": "# GET /todos\n\nThis endpoint retrieves a list of todo items. It allows users to fetch all existing todos from the server.\n\n## Request Parameters\n\nThis endpoint does not require any input parameters. Simply make a GET request to the specified URL to obtain the todos.\n\n## Response Structure\n\nUpon a successful request, the server responds with a JSON object containing the following structure:\n\n- **todos** (Array): A list of todo items, where each item includes:\n    \n    - **id** (Integer): The unique identifier for the todo item.\n        \n    - **todo** (String): The description of the todo item.\n        \n    - **completed** (Boolean): Indicates whether the todo item has been completed.\n        \n    - **userId** (Integer): The identifier of the user to whom the todo item belongs.\n        \n- **total** (Integer): The total number of todos available.\n    \n- **skip** (Integer): The number of todos skipped in the response (used for pagination).\n    \n- **limit** (Integer): The maximum number of todos returned in the response.\n    \n\n### Example Response\n\n``` json\n{\n  \"todos\": [\n    {\n      \"id\": 0,\n      \"todo\": \"\",\n      \"completed\": true,\n      \"userId\": 0\n    }\n  ],\n  \"total\": 0,\n  \"skip\": 0,\n  \"limit\": 0\n}\n\n ```\n\nThis response indicates that the request was successful and provides the user with the current state of todos."
 					},
 					"response": []
 				},
@@ -447,18 +447,6 @@
 						"header": [],
 						"url": "{{base_url}}/todos/{{todo_id}}",
 						"description": "\n## Delete Todo Item\n\nThis endpoint allows you to delete a specific todo item identified by its unique `todo_id`.\n\n### Request\n\n- **Method**: `DELETE`\n- **Endpoint**: `{{base_url}}/todos/{{todo_id}}`\n- **Path Parameters**:\n  - `todo_id` (required): The unique identifier of the todo item you wish to delete.\n\n### Response\n\nUpon successful deletion of the todo item, the API will return a response with the following details:\n\n- **Status Code**: `200 OK`\n- **Content-Type**: `application/json`\n- **Response Body**:\n    ```json\n    {\n        \"id\": 0,\n        \"todo\": \"\",\n        \"completed\": true,\n        \"userId\": 0,\n        \"isDeleted\": true,\n        \"deletedOn\": \"\"\n    }\n    ```\n  - `id`: The unique identifier of the deleted todo item.\n  - `todo`: The title or description of the deleted todo item.\n  - `completed`: A boolean indicating if the todo item was completed before deletion.\n  - `userId`: The identifier of the user who created the todo item.\n  - `isDeleted`: A boolean confirming that the item has been marked as deleted.\n  - `deletedOn`: A timestamp indicating when the item was deleted.\n\nThis response confirms the successful deletion of the specified todo item and provides relevant details about the deleted item.\n"
-					},
-					"response": []
-				},
-				{
-					"name": "New Request",
-					"id": "573af2b2-2989-452f-b57b-7354d35b94a4",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": []
 					},
 					"response": []
 				}
