@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "b9b900e3-97fe-4d59-9076-62c14abdbe06",
+		"name": "Test_Todo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create todo Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//parse response to json ",
+							"const jsonData = pm.response.json();",
+							"",
+							"//Test de statut 201",
+							"pm.test(\"Status 201 - Todo créé\", function () {",
+							" pm.response.to.have.status(201);",
+							"});",
+							"",
+							"//Test de la présence de l'id du todo créé",
+							"pm.test(\"L'id est retourné\", function () {",
+							" pm.expect(jsonData).to.have.property(\"id\");",
+							"});",
+							"",
+							"//Test de la présence du titre du todo créé",
+							"pm.test(\"Le titre correspond\", function () {",
+							"    pm.expect(jsonData[pm.environment.get(\"todo_title\")]).to.eql(\"Create my first E2E Flow\");",
+							"});",
+							"",
+							"// Stocker l'id pour les requêtes suivantes",
+							"pm.environment.set(\"todo_id\", jsonData.id -1);",
+							"console.log(\"Todo ID = \", jsonData.id);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"id": "1f04e556-605e-4080-8e34-1547e312e88e"
+					}
+				}
+			],
+			"id": "bdd663e9-5e21-492c-b012-707681e92222",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": 1,\n    \"{{todo_title}}\": \"Create my first E2E Flow\",\n    \"completed\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{base_url}}/todos{{post_path}}"
+			},
+			"response": []
+		},
+		{
+			"name": "get created tod Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test : vérifier que le status est 200 OK",
+							"pm.test(\"Status code est 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const createdTodo = pm.response.json();",
+							"",
+							"pm.test(\"Le todo a un champ 'id'\", function () {",
+							"    pm.expect(createdTodo).to.have.property(\"id\");",
+							"});",
+							"",
+							"pm.test(\"Le titre est une chaîne de caractères\", function () {",
+							"    pm.expect(createdTodo[pm.environment.get(\"todo_title\")]).to.be.a(\"string\");",
+							"});",
+							"",
+							"pm.test(\"Le champ 'completed' est un booléen\", function () {",
+							"    pm.expect(createdTodo.completed).to.be.a(\"boolean\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"id": "61fd8204-51d0-4993-9f2f-ebc11ba02640"
+					}
+				}
+			],
+			"id": "c36c50c9-63bc-48b4-b3ca-073700395892",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{base_url}}/todos/{{todo_id}}"
+			},
+			"response": []
+		},
+		{
+			"name": "update created todo Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test : vérifier que le status est 200",
+							"pm.test(\"Status code est 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const updatedTodo = pm.response.json();",
+							"",
+							"pm.test(\"Le champ completed existe et est true\", function () {",
+							"    pm.expect(updatedTodo).to.have.property(\"completed\");",
+							"    pm.expect(updatedTodo.completed).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"id": "c28f744f-2bd2-4fd6-b197-037d1c5b57df"
+					}
+				}
+			],
+			"id": "f65c05fd-15ea-4364-839e-d5cc7a1b6c3c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"completed\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{base_url}}/todos/{{todo_id}}"
+			},
+			"response": []
+		},
+		{
+			"name": "delete created todo Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200 - Todo supprimé\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"// Nettoyage de la variable d'environnement",
+							"pm.environment.set(",
+							"    \"todo_id\", ",
+							"    parseInt(pm.environment.get(\"todo_id\"))+1",
+							"    );"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"id": "5ce99e3f-5813-4417-b41f-6eda0c76e0a0"
+					}
+				}
+			],
+			"id": "87e28427-f794-4c82-9596-db5f44e4e65f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "{{base_url}}/todos/{{todo_id}}"
+			},
+			"response": []
+		},
+		{
+			"name": "get deleted todo Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 404 - Todo introuvable\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"id": "02674c2d-ece9-4243-adfb-4469d25f95e7"
+					}
+				}
+			],
+			"id": "c5f9e7d5-fd5b-49be-9862-769e9cf935b4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{base_url}}/todos/{{todo_id}}"
+			},
+			"response": []
+		}
+	]
+}
